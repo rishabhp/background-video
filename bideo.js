@@ -6,10 +6,15 @@
  * - http://www.w3schools.com/tags/ref_av_dom.asp
  */
 
-(function (global) {
+(function () {
 
-  // Define Bideo constructor on the global object
-  global.Bideo = function () {
+  // Retrieves the global object.
+  if (typeof global === 'undefined') {
+    global = window;
+  }
+  
+  // Define Bideo constructor.
+  var Bideo = function () {
 
     // Plugin options
     this.opt = null;
@@ -189,4 +194,25 @@
 
   };
 
-}(window));
+  // Module support.
+  if (typeof exports !== 'undefined') {
+
+    if (typeof module !== 'undefined' && module.exports) {
+      exports = module.exports = Bideo;
+    }
+    exports.Bideo = Bideo;
+
+    // Browser global support.
+  } else {
+    global.Bideo = Bideo;
+  }
+
+  // AMD module support.
+  if (typeof define === 'function' && define.amd) {
+
+    define([], function() {
+      return Bideo;
+    });
+  }
+  
+}.call(this));
