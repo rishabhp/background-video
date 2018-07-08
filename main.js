@@ -32,8 +32,12 @@
     ],
 
     // What to do once video loads (initial frame)
-    onLoad: function () {
-      document.querySelector('#video_cover').style.display = 'none';
+    onLoad: function (playPromise) {
+      if (playPromise !== undefined) {
+        playPromise.then(function () {
+          document.querySelector('#video_cover').style.display = 'none';
+        });
+      }
     }
   });
 }());
