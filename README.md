@@ -5,7 +5,7 @@ Want to play a video in the background of a container or `body` itself ? This pl
 
 [**Demo**](http://rishabhp.github.io/bideo.js/)
 
-Features
+Basic Features
 --------
 
 ### Resizing
